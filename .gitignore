@@ -1,0 +1,70 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# playwright (artefactos de las pruebas e2e)
+/test-results/
+/playwright-report/
+/blob-report/
+/.playwright/
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+!.env.example
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# convex: `_generated` SÍ se versiona para que `npm run build` sea reproducible
+# desde un checkout limpio (Railway build no ejecuta codegen, y `convex codegen`
+# requiere credenciales del deployment). Regenerar con `npx convex dev`.
+
+# credenciales de convex exclusivas de esta carpeta (nunca commitear)
+.convex-home/
+
+# artefactos de herramientas de desarrollo (MCP, etc.)
+.playwright-mcp/
+
+# Backups de la BD de Convex (contienen datos reales)
+backups/
+
+# Archivos temporales de trabajo (carpeta tmp/ de la raíz del proyecto)
+/tmp/
+
+# claves y credenciales (repositorio público)
+*.key
+credentials*
+/dist
+.railway

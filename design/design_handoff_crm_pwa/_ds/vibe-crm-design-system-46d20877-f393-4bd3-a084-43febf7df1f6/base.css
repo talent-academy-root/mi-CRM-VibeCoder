@@ -1,0 +1,36 @@
+/* Vibe CRM — minimal base resets & defaults.
+ * Element-level only; no component styling lives here.
+ */
+
+:root {
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Tabular numerals for any mono/figure usage */
+.tnum, [data-mono] {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Shared motion used by components (spinner, skeleton) */
+@keyframes vibe-spin { to { transform: rotate(360deg); } }
+@keyframes vibe-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }

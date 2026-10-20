@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+/*
+  Tokens del Vibe CRM Design System (ver design/design.md).
+  Modo oscuro: atributo data-theme="dark" en <html> (ver [data-theme="dark"] abajo).
+*/
+@theme {
+  --color-primary: #16a34a;
+  --color-primary-hover: #15803d;
+  --color-primary-active: #166534;
+  --color-primary-subtle: #f0fdf4;
+  --color-on-primary: #ffffff;
+
+  --color-bg: #f7f8f9;
+  --color-surface: #ffffff;
+  --color-surface-2: #f1f2f4;
+  --color-border: #e8eaed;
+  --color-border-strong: #d8dbdf;
+
+  --color-text: #1a1d21;
+  --color-text-muted: #656c75;
+  --color-text-subtle: #868d96;
+
+  --color-focus: #16a34a;
+
+  --color-success: #15803d;
+  --color-success-bg: #ecfdf3;
+  --color-success-text: #166534;
+  --color-warning: #b45309;
+  --color-warning-bg: #fffbeb;
+  --color-warning-text: #92400e;
+  --color-error: #dc2626;
+  --color-error-bg: #fef2f2;
+  --color-error-text: #991b1b;
+  --color-info: #2563eb;
+  --color-info-bg: #eff6ff;
+  --color-info-text: #1e40af;
+
+  --font-sans: var(--font-inter), "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
+  --radius-2xl: 16px;
+
+  --shadow-xs: 0 1px 2px rgba(16, 24, 32, 0.04);
+  --shadow-sm: 0 1px 2px rgba(16, 24, 32, 0.06), 0 1px 3px rgba(16, 24, 32, 0.05);
+  --shadow-md: 0 2px 4px rgba(16, 24, 32, 0.05), 0 4px 12px rgba(16, 24, 32, 0.06);
+  --shadow-lg: 0 8px 24px rgba(16, 24, 32, 0.1);
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --duration-fast: 150ms;
+}
+
+[data-theme="dark"] {
+  --color-primary: #22c55e;
+  --color-primary-hover: #4ade80;
+  --color-primary-active: #86efac;
+  --color-primary-subtle: rgba(34, 197, 94, 0.14);
+  --color-on-primary: #052e16;
+
+  --color-bg: #0e0f11;
+  --color-surface: #16181b;
+  --color-surface-2: #1c1f23;
+  --color-border: #2a2e33;
+  --color-border-strong: #3a3f45;
+
+  --color-text: #ececed;
+  --color-text-muted: #9ba1a8;
+  --color-text-subtle: #71777e;
+
+  --color-focus: #4ade80;
+
+  --color-success: #4ade80;
+  --color-success-bg: rgba(34, 197, 94, 0.14);
+  --color-success-text: #86efac;
+  --color-warning: #fbbf24;
+  --color-warning-bg: rgba(217, 119, 6, 0.16);
+  --color-warning-text: #fcd34d;
+  --color-error: #f87171;
+  --color-error-bg: rgba(220, 38, 38, 0.16);
+  --color-error-text: #fca5a5;
+  --color-info: #60a5fa;
+  --color-info-bg: rgba(37, 99, 235, 0.18);
+  --color-info-text: #93c5fd;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  html[data-theme="dark"] {
+    color-scheme: dark;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    letter-spacing: -0.011em;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .font-mono,
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-strong);
+    border-radius: 9999px;
+    border: 3px solid var(--color-bg);
+  }
+}
+
+@keyframes vibe-slide-up {
+  from {
+    transform: translateY(44px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes vibe-pop-in {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes vibe-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes vibe-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+@keyframes vibe-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

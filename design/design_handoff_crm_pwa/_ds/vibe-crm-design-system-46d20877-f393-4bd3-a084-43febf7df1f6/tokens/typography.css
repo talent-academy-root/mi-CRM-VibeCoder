@@ -1,0 +1,33 @@
+/* Vibe CRM — Typography tokens
+ * Sans (all text): Inter. Mono tabular (figures, amounts, table data): JetBrains Mono.
+ * Weights: 400 body · 500 labels/emphasis · 600 titles. Avoid 700.
+ * Tracking: -0.011em on titles and general text.
+ */
+
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Type scale */
+  --text-4xl: 2.25rem;   /* 36px — page title */
+  --text-3xl: 1.875rem;  /* 30px — large section heading / KPI figure */
+  --text-2xl: 1.5rem;    /* 24px — heading */
+  --text-xl:  1.25rem;   /* 20px — card title */
+  --text-lg:  1.125rem;  /* 18px — subtitle / large label */
+  --text-base: 1rem;     /* 16px — body (mobile base) */
+  --text-sm:  0.875rem;  /* 14px — secondary text */
+  --text-xs:  0.75rem;   /* 12px — minor label (uppercase, tracking .06em) */
+
+  /* Weights */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold: 600;
+
+  /* Line heights */
+  --leading-tight: 1.2;  /* titles */
+  --leading-body:  1.5;  /* body */
+
+  /* Tracking */
+  --tracking-tight: -0.011em;
+  --tracking-caps:  0.06em;
+}

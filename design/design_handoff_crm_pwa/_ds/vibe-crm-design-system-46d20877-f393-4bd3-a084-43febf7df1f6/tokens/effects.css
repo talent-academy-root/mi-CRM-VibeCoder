@@ -1,0 +1,13 @@
+/* Vibe CRM — Shadows & focus
+ * Shadows are VERY subtle. Separate primarily with 1px borders, not heavy shadows.
+ */
+
+:root {
+  --shadow-xs: 0 1px 2px rgba(16, 24, 32, .04);
+  --shadow-sm: 0 1px 2px rgba(16, 24, 32, .06), 0 1px 3px rgba(16, 24, 32, .05);
+  --shadow-md: 0 2px 4px rgba(16, 24, 32, .05), 0 4px 12px rgba(16, 24, 32, .06);
+  --shadow-lg: 0 8px 24px rgba(16, 24, 32, .10);
+
+  /* Focus ring with separation gap (place over a --color-surface background) */
+  --focus-ring: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-focus);
+}

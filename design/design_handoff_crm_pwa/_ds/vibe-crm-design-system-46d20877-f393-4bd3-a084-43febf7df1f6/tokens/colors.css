@@ -1,0 +1,97 @@
+/* Vibe CRM — Color tokens
+ * Always use the SEMANTIC tokens. Raw scales exist only to build semantics or for charts.
+ * Dark mode: set data-theme="dark" on a root container (<html> or wrapper).
+ */
+
+:root {
+  /* ---- Raw green scale ---- */
+  --green-50:  #F0FDF4;
+  --green-100: #DCFCE7;
+  --green-200: #BBF7D0;
+  --green-300: #86EFAC;
+  --green-400: #4ADE80;
+  --green-500: #22C55E;
+  --green-600: #16A34A; /* primary */
+  --green-700: #15803D;
+  --green-800: #166534;
+  --green-900: #14532D;
+  --green-950: #052E16;
+
+  /* ---- Raw cool-neutral scale ---- */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #F7F8F9;
+  --neutral-100: #F1F2F4;
+  --neutral-200: #E8EAED;
+  --neutral-300: #D8DBDF;
+  --neutral-400: #B0B5BC;
+  --neutral-500: #868D96;
+  --neutral-600: #656C75;
+  --neutral-700: #4A5159;
+  --neutral-800: #2E3338;
+  --neutral-900: #1A1D21;
+  --neutral-950: #0E0F11;
+
+  /* ---- Semantic: primary ---- */
+  --color-primary:        #16A34A;
+  --color-primary-hover:  #15803D;
+  --color-primary-active: #166534;
+  --color-primary-subtle: #F0FDF4;
+  --color-on-primary:     #FFFFFF;
+
+  /* ---- Semantic: surfaces & text ---- */
+  --color-bg:            #F7F8F9;
+  --color-surface:       #FFFFFF;
+  --color-surface-2:     #F1F2F4;
+  --color-border:        #E8EAED;
+  --color-border-strong: #D8DBDF;
+  --color-text:          #1A1D21;
+  --color-text-muted:    #656C75;
+  --color-text-subtle:   #868D96;
+  --color-focus:         #16A34A;
+
+  /* ---- Semantic: state (fg / bg / text) ---- */
+  --color-success:      #15803D;
+  --color-success-bg:   #ECFDF3;
+  --color-success-text: #166534;
+  --color-warning:      #B45309;
+  --color-warning-bg:   #FFFBEB;
+  --color-warning-text: #92400E;
+  --color-error:        #DC2626;
+  --color-error-bg:     #FEF2F2;
+  --color-error-text:   #991B1B;
+  --color-info:         #2563EB;
+  --color-info-bg:      #EFF6FF;
+  --color-info-text:    #1E40AF;
+}
+
+/* ---- Dark mode: redefine semantics only ---- */
+[data-theme="dark"] {
+  --color-primary:        #22C55E;
+  --color-primary-hover:  #4ADE80;
+  --color-primary-active: #86EFAC;
+  --color-primary-subtle: rgba(34, 197, 94, .14);
+  --color-on-primary:     #052E16;
+
+  --color-bg:            #0E0F11;
+  --color-surface:       #16181B;
+  --color-surface-2:     #1C1F23;
+  --color-border:        #2A2E33;
+  --color-border-strong: #3A3F45;
+  --color-text:          #ECEDEE;
+  --color-text-muted:    #9BA1A8;
+  --color-text-subtle:   #71777E;
+  --color-focus:         #4ADE80;
+
+  --color-success:      #4ADE80;
+  --color-success-bg:   rgba(34, 197, 94, .14);
+  --color-success-text: #86EFAC;
+  --color-warning:      #FBBF24;
+  --color-warning-bg:   rgba(217, 119, 6, .16);
+  --color-warning-text: #FCD34D;
+  --color-error:        #F87171;
+  --color-error-bg:     rgba(220, 38, 38, .16);
+  --color-error-text:   #FCA5A5;
+  --color-info:         #60A5FA;
+  --color-info-bg:      rgba(37, 99, 235, .18);
+  --color-info-text:    #93C5FD;
+}

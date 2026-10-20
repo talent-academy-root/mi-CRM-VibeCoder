@@ -1,0 +1,130 @@
+# yaml-language-server: $schema=https://storage.googleapis.com/coderabbit_public_assets/schema.v2.json
+# Configuración de CodeRabbit para Vibe CRM.
+# Criterio: solo queremos que nos avise de BLOQUEANTES y MAYORES.
+# Nitpicks, estilo, naming y sugerencias menores no se comentan.
+
+language: es-ES
+
+tone_instructions: >-
+  Comenta solo problemas bloqueantes o mayores: fallos de seguridad, fugas de
+  datos, bugs de lógica, roturas de tipos o de build, y regresiones. Ignora
+  estilo, naming, formato y micro-optimizaciones. Sé breve y directo.
+
+reviews:
+  # quiet = únicamente el feedback más importante (el nivel más bajo de ruido)
+  profile: quiet
+
+  # No bloqueamos el merge: CodeRabbit comenta, el equipo decide.
+  request_changes_workflow: false
+
+  # Resumen sí; adornos no.
+  high_level_summary: true
+  collapse_walkthrough: true
+  changed_files_summary: false
+  sequence_diagrams: false
+  estimate_code_review_effort: false
+  poem: false
+  in_progress_fortune: false
+  suggested_labels: false
+  auto_apply_labels: false
+  suggested_reviewers: false
+  related_issues: false
+  related_prs: false
+  assess_linked_issues: false
+
+  auto_review:
+    enabled: true
+    drafts: false
+    auto_incremental_review: true
+    ignore_title_keywords:
+      - wip
+      - borrador
+      - "no-review"
+
+  # Estas "mejoras finales" generan PRs y sugerencias no bloqueantes: fuera.
+  finishing_touches:
+    docstrings:
+      enabled: false
+    unit_tests:
+      enabled: false
+    simplify:
+      enabled: false
+
+  # Checks previos al merge desactivados (título, descripción, docstrings).
+  pre_merge_checks:
+    title:
+      mode: "off"
+    description:
+      mode: "off"
+    docstrings:
+      mode: "off"
+    issue_assessment:
+      mode: "off"
+
+  # Nada que revisar fuera del código fuente propio.
+  #
+  # SOLO EXCLUSIONES, y esto importa: en cuanto se escribe un patrón de
+  # inclusión, la lista pasa a comportarse como lista blanca y todo lo que no
+  # case queda fuera. Se probó, y el resultado fue una revisión que terminaba
+  # con "All files are ignored" (detectado con `coderabbit review` en local).
+  #
+  # `package-lock.json` NO se excluye a propósito, aunque sea ruido de
+  # revisión: estos patrones alimentan también el `git sparse-checkout` con el
+  # que CodeRabbit clona el repo, así que excluirlo dejaba el lockfile fuera
+  # del disco y `osvScanner` se quedaba sin nada que analizar — nos
+  # desactivaba el aviso de dependencias vulnerables sin querer (lo señaló
+  # CodeRabbit en el PR #10). Comentarlo como código no lo hace igualmente:
+  # los lockfiles quedan fuera de la revisión de texto por defecto.
+  path_filters:
+    - "!node_modules/**"
+    - "!.next/**"
+    - "!tsconfig.tsbuildinfo"
+    - "!.playwright-mcp/**"
+    - "!public/**"
+    - "!design/**"
+    - "!**/*.svg"
+    - "!**/*.png"
+
+  path_instructions:
+    - path: "convex/**"
+      instructions: >-
+        Backend Convex. Reporta solo: queries/mutations sin comprobación de
+        sesión o de rol, datos sensibles devueltos al cliente, validadores de
+        argumentos ausentes o laxos, y enumeración de cuentas por diferencias
+        en mensajes de error o en tiempos de respuesta. No comentes estilo.
+    - path: "src/**"
+      instructions: >-
+        Frontend Next.js. Reporta solo: control de acceso ausente en rutas o
+        acciones de servidor, secretos o credenciales expuestos al cliente,
+        XSS, y errores de lógica que rompan el flujo. No comentes estilo,
+        formato ni preferencias de componentes.
+
+  # Solo linters de seguridad y de correctness; los de estilo/prosa, apagados.
+  tools:
+    eslint:
+      enabled: true
+    gitleaks:
+      enabled: true
+    semgrep:
+      enabled: true
+    osvScanner:
+      enabled: true
+    markdownlint:
+      enabled: false
+    languagetool:
+      enabled: false
+    yamllint:
+      enabled: false
+    biome:
+      enabled: false
+    oxc:
+      enabled: false
+    stylelint:
+      enabled: false
+    htmlhint:
+      enabled: false
+    ast-grep:
+      enabled: false
+
+chat:
+  auto_reply: true
